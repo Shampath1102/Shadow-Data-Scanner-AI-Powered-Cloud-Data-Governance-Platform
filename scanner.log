@@ -1,0 +1,121 @@
+[2026-02-25 12:05:46] [INFO]: Initializing ML classifier...
+[2026-02-25 12:05:46] [SUCCESS]: ML classifier initialized successfully
+[2026-02-25 12:05:46] [INFO]: 🚀 Starting shadow data scan on: C:\Users\rupa1\OneDrive\Desktop\Shadow_data_hunter_cloud\proj2\test-data
+[2026-02-25 12:05:46] [INFO]: 📁 Phase 1: Scanning files...
+[2026-02-25 12:05:46] [INFO]: 📁 Scanning directory: C:\Users\rupa1\OneDrive\Desktop\Shadow_data_hunter_cloud\proj2\test-data
+[2026-02-25 12:05:46] [INFO]: Found 4 files to scan
+[2026-02-25 12:05:46] [SUCCESS]: ✅ Scanned: config.json (2.07 KB)
+[2026-02-25 12:05:46] [SUCCESS]: ✅ Scanned: credentials.txt (222 Bytes)
+[2026-02-25 12:05:46] [SUCCESS]: ✅ Scanned: readme.txt (192 Bytes)
+[2026-02-25 12:05:46] [SUCCESS]: ✅ Scanned: sample.env (2.38 KB)
+[2026-02-25 12:05:46] [INFO]: Successfully scanned 4 files
+[2026-02-25 12:05:46] [INFO]: 🔍 Phase 2: Analyzing files for sensitive data...
+[2026-02-25 12:05:46] [INFO]: 📊 Phase 3: Generating report...
+[2026-02-25 12:05:46] [SUCCESS]: ✅ Scan completed in 184ms
+[2026-02-25 12:05:46] [INFO]: 📈 Summary: 14 findings in 4 files
+[2026-02-25 12:06:46] [INFO]: Initializing ML classifier...
+[2026-02-25 12:06:46] [SUCCESS]: ML classifier initialized successfully
+[2026-02-25 12:06:46] [INFO]: 🚀 Starting shadow data scan on: ./test-data
+[2026-02-25 12:06:46] [INFO]: 📁 Phase 1: Scanning files...
+[2026-02-25 12:06:46] [INFO]: 📁 Scanning directory: ./test-data
+[2026-02-25 12:06:46] [INFO]: Found 4 files to scan
+[2026-02-25 12:06:46] [SUCCESS]: ✅ Scanned: config.json (2.07 KB)
+[2026-02-25 12:06:46] [SUCCESS]: ✅ Scanned: credentials.txt (222 Bytes)
+[2026-02-25 12:06:46] [SUCCESS]: ✅ Scanned: readme.txt (192 Bytes)
+[2026-02-25 12:06:46] [SUCCESS]: ✅ Scanned: sample.env (2.38 KB)
+[2026-02-25 12:06:46] [INFO]: Successfully scanned 4 files
+[2026-02-25 12:06:46] [INFO]: 🔍 Phase 2: Analyzing files for sensitive data...
+[2026-02-25 12:06:46] [INFO]: 📊 Phase 3: Generating report...
+[2026-02-25 12:06:46] [SUCCESS]: ✅ Scan completed in 118ms
+[2026-02-25 12:06:46] [INFO]: 📈 Summary: 14 findings in 4 files
+[2026-02-25 12:13:26] [INFO]: Initializing ML classifier...
+[2026-02-25 12:13:26] [SUCCESS]: ML classifier initialized successfully
+[2026-02-25 12:13:26] [INFO]: 🚀 Starting shadow data scan on: C:\Users\rupa1\OneDrive\Desktop\Shadow_data_hunter_cloud\proj2\test-data
+[2026-02-25 12:13:26] [INFO]: 📁 Phase 1: Scanning files...
+[2026-02-25 12:13:26] [INFO]: 📁 Scanning directory: C:\Users\rupa1\OneDrive\Desktop\Shadow_data_hunter_cloud\proj2\test-data
+[2026-02-25 12:13:26] [INFO]: Found 6 files to scan
+[2026-02-25 12:13:26] [SUCCESS]: ✅ Scanned: application.yml (224 Bytes)
+[2026-02-25 12:13:26] [SUCCESS]: ✅ Scanned: config.json (2.07 KB)
+[2026-02-25 12:13:26] [SUCCESS]: ✅ Scanned: credentials.txt (222 Bytes)
+[2026-02-25 12:13:26] [DEBUG]: Skipping unsupported file type: C:\Users\rupa1\OneDrive\Desktop\Shadow_data_hunter_cloud\proj2\test-data\database.sql
+[2026-02-25 12:13:26] [SUCCESS]: ✅ Scanned: readme.txt (192 Bytes)
+[2026-02-25 12:13:26] [SUCCESS]: ✅ Scanned: sample.env (2.38 KB)
+[2026-02-25 12:13:26] [INFO]: Successfully scanned 5 files
+[2026-02-25 12:13:26] [INFO]: 🔍 Phase 2: Analyzing files for sensitive data...
+[2026-02-25 12:13:26] [INFO]: 📊 Phase 3: Generating report...
+[2026-02-25 12:13:27] [SUCCESS]: ✅ Scan completed in 183ms
+[2026-02-25 12:13:27] [INFO]: 📈 Summary: 23 findings in 5 files
+[2026-02-25 16:50:49] [INFO]: Initializing ML classifier...
+[2026-02-25 16:50:49] [SUCCESS]: ML classifier initialized successfully
+[2026-02-25 16:50:49] [INFO]: 🚀 Starting shadow data scan on: C:\Users\rupa1\OneDrive\Desktop\Shadow_data_hunter_cloud\proj2\test-data
+[2026-02-25 16:50:49] [INFO]: 📁 Phase 1: Scanning files...
+[2026-02-25 16:50:49] [INFO]: 📁 Scanning directory: C:\Users\rupa1\OneDrive\Desktop\Shadow_data_hunter_cloud\proj2\test-data
+[2026-02-25 16:50:49] [INFO]: Found 6 files to scan
+[2026-02-25 16:50:49] [SUCCESS]: ✅ Scanned: application.yml (224 Bytes)
+[2026-02-25 16:50:49] [SUCCESS]: ✅ Scanned: config.json (2.07 KB)
+[2026-02-25 16:50:49] [SUCCESS]: ✅ Scanned: credentials.txt (222 Bytes)
+[2026-02-25 16:50:49] [DEBUG]: Skipping unsupported file type: C:\Users\rupa1\OneDrive\Desktop\Shadow_data_hunter_cloud\proj2\test-data\database.sql
+[2026-02-25 16:50:49] [SUCCESS]: ✅ Scanned: readme.txt (192 Bytes)
+[2026-02-25 16:50:49] [SUCCESS]: ✅ Scanned: sample.env (2.38 KB)
+[2026-02-25 16:50:49] [INFO]: Successfully scanned 5 files
+[2026-02-25 16:50:49] [INFO]: 🔍 Phase 2: Analyzing files for sensitive data...
+[2026-02-25 16:50:49] [INFO]: 📊 Phase 3: Generating report...
+[2026-02-25 16:50:49] [SUCCESS]: ✅ Scan completed in 148ms
+[2026-02-25 16:50:49] [INFO]: 📈 Summary: 23 findings in 5 files
+[2026-02-25 17:26:22] [INFO]: Initializing ML classifier...
+[2026-02-25 17:26:22] [SUCCESS]: ML classifier initialized successfully
+[2026-02-25 17:26:22] [INFO]: 🚀 Starting shadow data scan on: C:\Users\rupa1\OneDrive\Desktop\Shadow_data_hunter_cloud\proj2\TESTDARA1
+[2026-02-25 17:26:22] [INFO]: 📁 Phase 1: Scanning files...
+[2026-02-25 17:26:22] [INFO]: 📁 Scanning directory: C:\Users\rupa1\OneDrive\Desktop\Shadow_data_hunter_cloud\proj2\TESTDARA1
+[2026-02-25 17:26:22] [INFO]: Found 1 files to scan
+[2026-02-25 17:26:22] [SUCCESS]: ✅ Scanned: credentials.txt (222 Bytes)
+[2026-02-25 17:26:23] [INFO]: Successfully scanned 1 files
+[2026-02-25 17:26:23] [INFO]: 🔍 Phase 2: Analyzing files for sensitive data...
+[2026-02-25 17:26:23] [INFO]: 📊 Phase 3: Generating report...
+[2026-02-25 17:26:23] [SUCCESS]: ✅ Scan completed in 83ms
+[2026-02-25 17:26:23] [INFO]: 📈 Summary: 12 findings in 1 files
+[2026-02-25 17:27:03] [INFO]: Initializing ML classifier...
+[2026-02-25 17:27:03] [SUCCESS]: ML classifier initialized successfully
+[2026-02-25 17:27:03] [INFO]: 🚀 Starting shadow data scan on: C:\Users\rupa1\OneDrive\Desktop\Shadow_data_hunter_cloud\proj2\TESTDARA1
+[2026-02-25 17:27:03] [INFO]: 📁 Phase 1: Scanning files...
+[2026-02-25 17:27:03] [INFO]: 📁 Scanning directory: C:\Users\rupa1\OneDrive\Desktop\Shadow_data_hunter_cloud\proj2\TESTDARA1
+[2026-02-25 17:27:03] [INFO]: Found 2 files to scan
+[2026-02-25 17:27:03] [SUCCESS]: ✅ Scanned: credentials.txt (222 Bytes)
+[2026-02-25 17:27:03] [SUCCESS]: ✅ Scanned: dummy.txt (51 Bytes)
+[2026-02-25 17:27:03] [INFO]: Successfully scanned 2 files
+[2026-02-25 17:27:03] [INFO]: 🔍 Phase 2: Analyzing files for sensitive data...
+[2026-02-25 17:27:03] [INFO]: 📊 Phase 3: Generating report...
+[2026-02-25 17:27:04] [SUCCESS]: ✅ Scan completed in 123ms
+[2026-02-25 17:27:04] [INFO]: 📈 Summary: 12 findings in 2 files
+[2026-02-25 17:29:31] [INFO]: Initializing ML classifier...
+[2026-02-25 17:29:31] [SUCCESS]: ML classifier initialized successfully
+[2026-02-25 17:29:31] [INFO]: 🚀 Starting shadow data scan on: ./test-data
+[2026-02-25 17:29:31] [INFO]: 📁 Phase 1: Scanning files...
+[2026-02-25 17:29:31] [INFO]: 📁 Scanning directory: ./test-data
+[2026-02-25 17:29:31] [INFO]: Found 5 files to scan
+[2026-02-25 17:29:31] [SUCCESS]: ✅ Scanned: application.yml (224 Bytes)
+[2026-02-25 17:29:31] [SUCCESS]: ✅ Scanned: config.json (2.07 KB)
+[2026-02-25 17:29:31] [DEBUG]: Skipping unsupported file type: test-data\database.sql
+[2026-02-25 17:29:31] [SUCCESS]: ✅ Scanned: readme.txt (192 Bytes)
+[2026-02-25 17:29:31] [SUCCESS]: ✅ Scanned: sample.env (2.38 KB)
+[2026-02-25 17:29:31] [INFO]: Successfully scanned 4 files
+[2026-02-25 17:29:31] [INFO]: 🔍 Phase 2: Analyzing files for sensitive data...
+[2026-02-25 17:29:31] [INFO]: 📊 Phase 3: Generating report...
+[2026-02-25 17:29:31] [SUCCESS]: ✅ Scan completed in 129ms
+[2026-02-25 17:29:31] [INFO]: 📈 Summary: 11 findings in 4 files
+[2026-02-25 17:31:31] [INFO]: Initializing ML classifier...
+[2026-02-25 17:31:31] [SUCCESS]: ML classifier initialized successfully
+[2026-02-25 17:31:31] [INFO]: 🚀 Starting shadow data scan on: C:\Users\rupa1\OneDrive\Desktop\Shadow_data_hunter_cloud\proj2\test-data
+[2026-02-25 17:31:31] [INFO]: 📁 Phase 1: Scanning files...
+[2026-02-25 17:31:31] [INFO]: 📁 Scanning directory: C:\Users\rupa1\OneDrive\Desktop\Shadow_data_hunter_cloud\proj2\test-data
+[2026-02-25 17:31:31] [INFO]: Found 5 files to scan
+[2026-02-25 17:31:31] [SUCCESS]: ✅ Scanned: application.yml (224 Bytes)
+[2026-02-25 17:31:31] [SUCCESS]: ✅ Scanned: config.json (2.07 KB)
+[2026-02-25 17:31:31] [DEBUG]: Skipping unsupported file type: C:\Users\rupa1\OneDrive\Desktop\Shadow_data_hunter_cloud\proj2\test-data\database.sql
+[2026-02-25 17:31:31] [SUCCESS]: ✅ Scanned: readme.txt (192 Bytes)
+[2026-02-25 17:31:31] [SUCCESS]: ✅ Scanned: sample.env (2.38 KB)
+[2026-02-25 17:31:31] [INFO]: Successfully scanned 4 files
+[2026-02-25 17:31:31] [INFO]: 🔍 Phase 2: Analyzing files for sensitive data...
+[2026-02-25 17:31:31] [INFO]: 📊 Phase 3: Generating report...
+[2026-02-25 17:31:31] [SUCCESS]: ✅ Scan completed in 164ms
+[2026-02-25 17:31:31] [INFO]: 📈 Summary: 11 findings in 4 files

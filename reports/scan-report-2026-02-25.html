@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Security Scan Report</title>
+    <style>
+        body { font-family: Arial; margin: 20px; background: #f5f5f5; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .header { background: #2c3e50; color: white; padding: 20px; border-radius: 5px; }
+        .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin: 20px 0; }
+        .card { background: white; padding: 20px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .high { color: #e74c3c; }
+        .medium { color: #f39c12; }
+        .low { color: #27ae60; }
+        .rec { background: #fff3cd; padding: 15px; margin: 10px 0; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔒 Shadow Data Scanner Report</h1>
+            <p>Generated: 118ms</p>
+        </div>
+        
+        <div class="stats">
+            <div class="card">
+                <h3>Files Scanned</h3>
+                <div style="font-size: 32px;">4</div>
+            </div>
+            <div class="card">
+                <h3>Total Findings</h3>
+                <div style="font-size: 32px;">14</div>
+            </div>
+            <div class="card">
+                <h3>Files with Issues</h3>
+                <div style="font-size: 32px;">1</div>
+            </div>
+            <div class="card">
+                <h3>Risk Levels</h3>
+                <div class="high">🔴 High: 8</div>
+                <div class="medium">🟡 Medium: 6</div>
+                <div class="low">🟢 Low: 0</div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2>💡 Recommendations</h2>
+            
+                <div class="rec">
+                    <strong style="color: #e74c3c">
+                        HIGH
+                    </strong>
+                    <p>Remove 8 hardcoded credentials found in your files</p>
+                    <p><em>Action: Move secrets to environment variables or a secret manager</em></p>
+                </div>
+            
+                <div class="rec">
+                    <strong style="color: #e74c3c">
+                        HIGH
+                    </strong>
+                    <p>Credentials detected in plain text</p>
+                    <p><em>Action: Use a secrets manager like HashiCorp Vault or AWS Secrets Manager</em></p>
+                </div>
+            
+                <div class="rec">
+                    <strong style="color: #e74c3c">
+                        HIGH
+                    </strong>
+                    <p>Financial data (credit cards, IBANs) detected</p>
+                    <p><em>Action: Encrypt financial data and restrict access</em></p>
+                </div>
+            
+        </div>
+    </div>
+</body>
+</html>

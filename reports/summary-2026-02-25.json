@@ -1,0 +1,72 @@
+{
+  "scanTime": "118ms",
+  "totalFiles": 4,
+  "totalFindings": 14,
+  "filesWithIssues": 1,
+  "riskBreakdown": {
+    "high": 8,
+    "medium": 6,
+    "low": 0
+  },
+  "categoryBreakdown": {
+    "credentials": 5,
+    "financial": 4,
+    "tokens": 1,
+    "generic": 4
+  },
+  "topFindings": [
+    {
+      "type": "high_entropy",
+      "count": 3
+    },
+    {
+      "type": "api_key",
+      "count": 2
+    },
+    {
+      "type": "iban",
+      "count": 2
+    },
+    {
+      "type": "swift_code",
+      "count": 2
+    },
+    {
+      "type": "password",
+      "count": 1
+    },
+    {
+      "type": "jwt_token",
+      "count": 1
+    },
+    {
+      "type": "env_api_key",
+      "count": 1
+    },
+    {
+      "type": "jwt",
+      "count": 1
+    },
+    {
+      "type": "base64_encoded",
+      "count": 1
+    }
+  ],
+  "recommendations": [
+    {
+      "priority": "high",
+      "message": "Remove 8 hardcoded credentials found in your files",
+      "action": "Move secrets to environment variables or a secret manager"
+    },
+    {
+      "priority": "high",
+      "message": "Credentials detected in plain text",
+      "action": "Use a secrets manager like HashiCorp Vault or AWS Secrets Manager"
+    },
+    {
+      "priority": "high",
+      "message": "Financial data (credit cards, IBANs) detected",
+      "action": "Encrypt financial data and restrict access"
+    }
+  ]
+}

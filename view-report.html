@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Security Scan Results</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background: #f5f5f5; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .header { background: #2c3e50; color: white; padding: 20px; border-radius: 5px; margin-bottom: 20px; }
+        .summary { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-bottom: 20px; }
+        .card { background: white; padding: 20px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .card h3 { margin: 0 0 10px 0; color: #666; }
+        .card .number { font-size: 32px; font-weight: bold; }
+        .high { color: #e74c3c; }
+        .medium { color: #f39c12; }
+        .low { color: #27ae60; }
+        .findings-table { background: white; padding: 20px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        table { width: 100%; border-collapse: collapse; }
+        th { background: #34495e; color: white; padding: 10px; text-align: left; }
+        td { padding: 10px; border-bottom: 1px solid #ddd; }
+        .risk-high { background: #fadbd8; }
+        .risk-medium { background: #fef5e7; }
+        .risk-low { background: #d4efdf; }
+        .recommendations { margin-top: 20px; background: #fff3cd; padding: 20px; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔒 Shadow Data Scanner Results</h1>
+            <p>Scan completed: <span id="scanTime"></span></p>
+        </div>
+
+        <div class="summary" id="summary">
+            <!-- Summary cards will be inserted here -->
+        </div>
+
+        <div class="findings-table">
+            <h2>🔍 Detailed Findings</h2>
+            <table id="findingsTable">
+                <thead>
+                    <tr>
+                        <th>File</th>
+                        <th>Type</th>
+                        <th>Risk</th>
+                        <th>Context</th>
+                    </tr>
+                </thead>
+                <tbody id="findingsBody">
+                </tbody>
+            </table>
+        </div>
+
+        <div class="recommendations" id="recommendations">
+            <!-- Recommendations will be inserted here -->
+        </div>
+    </div>
+
+    <script>
+        async function loadReport() {
+            try {
+                const response = await fetch('./reports/summary.json');
+                const data = await response.json();
+                
+                // Update scan time
+                document.getElementById('scanTime').textContent = data.scanTime;
+                
+                // Update summary cards
+                const summaryHtml = `
+                    <div class="card">
+                        <h3>Files Scanned</h3>
+                        <div class="number">${data.totalFiles}</div>
+                    </div>
+                    <div class="card">
+                        <h3>Total Findings</h3>
+                        <div class="number">${data.totalFindings}</div>
+                    </div>
+                    <div class="card">
+                        <h3>Files with Issues</h3>
+                        <div class="number">${data.filesWithIssues}</div>
+                    </div>
+                    <div class="card">
+                        <h3>Risk Breakdown</h3>
+                        <div><span class="high">🔴 High: ${data.riskBreakdown.high || 0}</span></div>
+                        <div><span class="medium">🟡 Medium: ${data.riskBreakdown.medium || 0}</span></div>
+                        <div><span class="low">🟢 Low: ${data.riskBreakdown.low || 0}</span></div>
+                    </div>
+                `;
+                document.getElementById('summary').innerHTML = summaryHtml;
+                
+                // Update findings table (you'll need to load the full results)
+                // For now, we'll show the top findings from summary
+                
+                // Update recommendations
+                const recsHtml = `
+                    <h2>💡 Recommendations</h2>
+                    ${data.recommendations.map(rec => `
+                        <div style="margin-bottom: 10px;">
+                            <strong style="color: ${rec.priority === 'high' ? '#e74c3c' : '#f39c12'}">
+                                ${rec.priority.toUpperCase()}
+                            </strong>
+                            <p>${rec.message}</p>
+                            <p><em>Action: ${rec.action}</em></p>
+                        </div>
+                    `).join('')}
+                `;
+                document.getElementById('recommendations').innerHTML = recsHtml;
+                
+            } catch (error) {
+                console.error('Error loading report:', error);
+            }
+        }
+        
+        loadReport();
+    </script>
+</body>
+</html>

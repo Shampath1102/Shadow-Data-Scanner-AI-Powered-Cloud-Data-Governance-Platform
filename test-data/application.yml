@@ -1,0 +1,9 @@
+database:
+  url: jdbc:mysql://localhost:3306/mydb
+  username: app_user
+  password: secretpassword123
+  
+api:
+  keys:
+    google: AIzaSyDQI4bp1Q8k6Zq8X8Z8Z8Z8Z8Z8Z8Z8Z8Z8Z8
+    stripe: sk_live_4eC39HqLyjWDarjtT1zdp7dc

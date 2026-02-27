@@ -1,0 +1,554 @@
+{
+  "credentials": {
+    "name": "Authentication Credentials",
+    "risk": "high",
+    "patterns": [
+      {
+        "name": "password",
+        "regex": "(password|passwd|pwd|pass)[\\s]*[=:][\\s]*['\"]?([^'\"\\s]+)['\"]?",
+        "description": "Plain text password",
+        "risk": "high"
+      },
+      {
+        "name": "api_key",
+        "regex": "(api[_-]?key|apikey|secret|token)[\\s]*[=:][\\s]*['\"]?([a-zA-Z0-9_\\-]{16,})['\"]?",
+        "description": "API key or token",
+        "risk": "high"
+      },
+      {
+        "name": "aws_key",
+        "regex": "(AKIA[0-9A-Z]{16})",
+        "description": "AWS Access Key",
+        "risk": "high"
+      },
+      {
+        "name": "aws_secret",
+        "regex": "(wJalrXUtnFEMI|K7MDENG|bPxRfiCY)[a-zA-Z0-9\\/+=]{20,}",
+        "description": "AWS Secret Key",
+        "risk": "high"
+      },
+      {
+        "name": "private_key",
+        "regex": "-----BEGIN (RSA|DSA|EC|OPENSSH) PRIVATE KEY-----",
+        "description": "Private key",
+        "risk": "high"
+      },
+      {
+        "name": "oauth_token",
+        "regex": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
+        "description": "OAuth token",
+        "risk": "high"
+      },
+      {
+        "name": "jwt_token",
+        "regex": "eyJ[a-zA-Z0-9_-]+\\.[a-zA-Z0-9_-]+\\.[a-zA-Z0-9_-]+",
+        "description": "JWT token",
+        "risk": "high"
+      },
+      {
+        "name": "env_password",
+        "regex": "(DB_PASSWORD|MYSQL_PASSWORD|POSTGRES_PASSWORD|REDIS_PASSWORD)[\\s]*[=:][\\s]*['\"]?([^'\"\\s]+)['\"]?",
+        "description": "Database password in env file",
+        "risk": "high"
+      },
+      {
+        "name": "env_api_key",
+        "regex": "(API_KEY|STRIPE_API_KEY|AWS_ACCESS_KEY|SECRET_KEY)[\\s]*[=:][\\s]*['\"]?([^'\"\\s]+)['\"]?",
+        "description": "API key in env file",
+        "risk": "high"
+      }
+    ]
+  },
+  "financial": {
+    "name": "Financial Information",
+    "risk": "high",
+    "patterns": [
+      {
+        "name": "credit_card",
+        "regex": "\\b(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|6(?:011|5[0-9]{2})[0-9]{12}|(?:2131|1800|35\\d{3})\\d{11})\\b",
+        "description": "Credit card number",
+        "risk": "high"
+      },
+      {
+        "name": "amex_card",
+        "regex": "\\b3[47][0-9]{13}\\b",
+        "description": "American Express card",
+        "risk": "high"
+      },
+      {
+        "name": "visa_card",
+        "regex": "\\b4[0-9]{12}(?:[0-9]{3})?\\b",
+        "description": "Visa card",
+        "risk": "high"
+      },
+      {
+        "name": "mastercard",
+        "regex": "\\b5[1-5][0-9]{14}\\b",
+        "description": "Mastercard",
+        "risk": "high"
+      },
+      {
+        "name": "discover_card",
+        "regex": "\\b6(?:011|5[0-9]{2})[0-9]{12}\\b",
+        "description": "Discover card",
+        "risk": "high"
+      },
+      {
+        "name": "cvv",
+        "regex": "\\b[0-9]{3,4}\\b(?=[\\s]*cvv|cvc|security)",
+        "description": "CVV number",
+        "risk": "high"
+      },
+      {
+        "name": "iban",
+        "regex": "[A-Z]{2}[0-9]{2}[A-Z0-9]{1,30}",
+        "description": "IBAN number",
+        "risk": "high"
+      },
+      {
+        "name": "swift_code",
+        "regex": "\\b[A-Z]{4}[A-Z]{2}[A-Z0-9]{2}([A-Z0-9]{3})?\\b(?![a-z])(?<!username)(?<!password)",
+        "description": "SWIFT/BIC code",
+        "risk": "medium"
+      },
+      {
+        "name": "routing_number",
+        "regex": "\\b[0-9]{9}\\b(?=[\\s]*routing|aba)",
+        "description": "Bank routing number",
+        "risk": "high"
+      },
+      {
+        "name": "account_number",
+        "regex": "\\b[0-9]{10,17}\\b(?=[\\s]*account)",
+        "description": "Bank account number",
+        "risk": "high"
+      }
+    ]
+  },
+  "personal": {
+    "name": "Personal Information",
+    "risk": "medium",
+    "patterns": [
+      {
+        "name": "ssn",
+        "regex": "\\b[0-9]{3}-[0-9]{2}-[0-9]{4}\\b",
+        "description": "Social Security Number",
+        "risk": "high"
+      },
+      {
+        "name": "ssn_no_dash",
+        "regex": "\\b[0-9]{9}\\b(?=[\\s]*(ssn|social))",
+        "description": "Social Security Number (no dashes)",
+        "risk": "high"
+      },
+      {
+        "name": "email",
+        "regex": "\\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Z|a-z]{2,}\\b",
+        "description": "Email address",
+        "risk": "medium"
+      },
+      {
+        "name": "phone_us",
+        "regex": "\\b\\+?1?[-. ]?\\(?[0-9]{3}\\)?[-. ]?[0-9]{3}[-. ]?[0-9]{4}\\b",
+        "description": "US Phone number",
+        "risk": "low"
+      },
+      {
+        "name": "phone_international",
+        "regex": "\\b\\+[0-9]{1,3}[-. ]?[0-9]{1,14}\\b",
+        "description": "International phone number",
+        "risk": "low"
+      },
+      {
+        "name": "ip_address",
+        "regex": "\\b(?:[0-9]{1,3}\\.){3}[0-9]{1,3}\\b",
+        "description": "IPv4 address",
+        "risk": "low"
+      },
+      {
+        "name": "ipv6_address",
+        "regex": "\\b([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}\\b",
+        "description": "IPv6 address",
+        "risk": "low"
+      },
+      {
+        "name": "passport",
+        "regex": "\\b[A-Z]{1,2}[0-9]{6,9}\\b",
+        "description": "Passport number",
+        "risk": "high"
+      },
+      {
+        "name": "driver_license",
+        "regex": "\\b[A-Z][0-9]{7}\\b",
+        "description": "Driver's license number",
+        "risk": "high"
+      },
+      {
+        "name": "dob",
+        "regex": "\\b[0-9]{1,2}[/-][0-9]{1,2}[/-][0-9]{2,4}\\b(?=[\\s]*(dob|birth|born))",
+        "description": "Date of birth",
+        "risk": "medium"
+      },
+      {
+        "name": "full_name",
+        "regex": "\\b[A-Z][a-z]+ [A-Z][a-z]+\\b(?=[\\s]*(name|fullname))",
+        "description": "Full name",
+        "risk": "low"
+      }
+    ]
+  },
+  "database": {
+    "name": "Database Connection Strings",
+    "risk": "high",
+    "patterns": [
+      {
+        "name": "mongodb_uri",
+        "regex": "mongodb(?:\\+srv)?:\\/\\/[^\\s]+",
+        "description": "MongoDB connection string",
+        "risk": "high"
+      },
+      {
+        "name": "mysql_uri",
+        "regex": "mysql:\\/\\/[^\\s]+",
+        "description": "MySQL connection string",
+        "risk": "high"
+      },
+      {
+        "name": "postgresql_uri",
+        "regex": "postgres(?:ql)?:\\/\\/[^\\s]+",
+        "description": "PostgreSQL connection string",
+        "risk": "high"
+      },
+      {
+        "name": "redis_uri",
+        "regex": "redis:\\/\\/[^\\s]+",
+        "description": "Redis connection string",
+        "risk": "high"
+      },
+      {
+        "name": "cassandra_uri",
+        "regex": "cassandra:\\/\\/[^\\s]+",
+        "description": "Cassandra connection string",
+        "risk": "high"
+      },
+      {
+        "name": "elasticsearch_uri",
+        "regex": "elasticsearch:\\/\\/[^\\s]+",
+        "description": "Elasticsearch connection string",
+        "risk": "high"
+      },
+      {
+        "name": "jdbc_connection",
+        "regex": "jdbc:[a-zA-Z0-9]+:\\/\\/[^\\s]+",
+        "description": "JDBC connection string",
+        "risk": "high"
+      },
+      {
+        "name": "database_url",
+        "regex": "(?:DATABASE_URL|DB_URL)[\\s]*[=:][\\s]*['\"]?[^'\"\\s]+['\"]?",
+        "description": "Database URL environment variable",
+        "risk": "high"
+      },
+      {
+        "name": "json_db_url",
+        "regex": "\"connectionString\"\\s*:\\s*\"([^\"]+)\"",
+        "description": "Database URL in JSON",
+        "risk": "high"
+      },
+      {
+        "name": "json_password",
+        "regex": "\"password\"\\s*:\\s*\"([^\"]+)\"",
+        "description": "Password in JSON",
+        "risk": "high"
+      }
+    ]
+  },
+  "cloud": {
+    "name": "Cloud Services",
+    "risk": "high",
+    "patterns": [
+      {
+        "name": "aws_access_key",
+        "regex": "(AKIA|ASIA)[A-Z0-9]{16}",
+        "description": "AWS Access Key ID",
+        "risk": "high"
+      },
+      {
+        "name": "aws_secret_key",
+        "regex": "[^A-Za-z0-9/+=][A-Za-z0-9/+=]{40}[^A-Za-z0-9/+=]",
+        "description": "AWS Secret Access Key",
+        "risk": "high"
+      },
+      {
+        "name": "google_api_key",
+        "regex": "AIza[0-9A-Za-z\\-_]{35}",
+        "description": "Google API Key",
+        "risk": "high"
+      },
+      {
+        "name": "google_oauth",
+        "regex": "[0-9]+-[0-9A-Za-z_]{32}\\.apps\\.googleusercontent\\.com",
+        "description": "Google OAuth Client ID",
+        "risk": "high"
+      },
+      {
+        "name": "azure_key",
+        "regex": "[a-z0-9_\\-]{3,63}:[a-z0-9_\\-]{3,63}==",
+        "description": "Azure Key",
+        "risk": "high"
+      },
+      {
+        "name": "azure_connection",
+        "regex": "DefaultEndpointsProtocol=https;AccountName=[^;]+;AccountKey=[^;]+",
+        "description": "Azure Connection String",
+        "risk": "high"
+      },
+      {
+        "name": "gcp_service_account",
+        "regex": "[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\\.iam\\.gserviceaccount\\.com",
+        "description": "GCP Service Account",
+        "risk": "high"
+      },
+      {
+        "name": "firebase_url",
+        "regex": "https://[a-zA-Z0-9-]+\\.firebaseio\\.com",
+        "description": "Firebase URL",
+        "risk": "medium"
+      }
+    ]
+  },
+  "crypto": {
+    "name": "Cryptographic Keys",
+    "risk": "high",
+    "patterns": [
+      {
+        "name": "rsa_private_key",
+        "regex": "-----BEGIN RSA PRIVATE KEY-----\\s*[\\s\\S]*?\\s*-----END RSA PRIVATE KEY-----",
+        "description": "RSA Private Key",
+        "risk": "high"
+      },
+      {
+        "name": "ec_private_key",
+        "regex": "-----BEGIN EC PRIVATE KEY-----\\s*[\\s\\S]*?\\s*-----END EC PRIVATE KEY-----",
+        "description": "EC Private Key",
+        "risk": "high"
+      },
+      {
+        "name": "openssh_private_key",
+        "regex": "-----BEGIN OPENSSH PRIVATE KEY-----\\s*[\\s\\S]*?\\s*-----END OPENSSH PRIVATE KEY-----",
+        "description": "OpenSSH Private Key",
+        "risk": "high"
+      },
+      {
+        "name": "pgp_private_key",
+        "regex": "-----BEGIN PGP PRIVATE KEY BLOCK-----\\s*[\\s\\S]*?\\s*-----END PGP PRIVATE KEY BLOCK-----",
+        "description": "PGP Private Key",
+        "risk": "high"
+      },
+      {
+        "name": "pkcs8_key",
+        "regex": "-----BEGIN PRIVATE KEY-----\\s*[\\s\\S]*?\\s*-----END PRIVATE KEY-----",
+        "description": "PKCS#8 Private Key",
+        "risk": "high"
+      },
+      {
+        "name": "certificate",
+        "regex": "-----BEGIN CERTIFICATE-----\\s*[\\s\\S]*?\\s*-----END CERTIFICATE-----",
+        "description": "SSL Certificate",
+        "risk": "medium"
+      }
+    ]
+  },
+  "secrets": {
+    "name": "Application Secrets",
+    "risk": "high",
+    "patterns": [
+      {
+        "name": "slack_token",
+        "regex": "(xox[pborsa]-[0-9]{12}-[0-9]{12}-[0-9]{12}-[a-zA-Z0-9]{32})",
+        "description": "Slack Token",
+        "risk": "high"
+      },
+      {
+        "name": "github_token",
+        "regex": "(ghp|gho|ghu|ghs|ghr)_[A-Za-z0-9_]{36,251}",
+        "description": "GitHub Token",
+        "risk": "high"
+      },
+      {
+        "name": "stripe_key",
+        "regex": "(?:sk|pk)_(?:test|live)_[0-9a-zA-Z]{24,34}",
+        "description": "Stripe API Key",
+        "risk": "high"
+      },
+      {
+        "name": "twilio_key",
+        "regex": "SK[0-9a-fA-F]{32}",
+        "description": "Twilio API Key",
+        "risk": "high"
+      },
+      {
+        "name": "sendgrid_key",
+        "regex": "SG\\.[a-zA-Z0-9-_]{22}\\.[a-zA-Z0-9-_]{43}",
+        "description": "SendGrid API Key",
+        "risk": "high"
+      },
+      {
+        "name": "mailgun_key",
+        "regex": "key-[0-9a-zA-Z]{32}",
+        "description": "Mailgun API Key",
+        "risk": "high"
+      },
+      {
+        "name": "square_key",
+        "regex": "sq0[a-z]{2}-[0-9A-Za-z\\-_]{22,43}",
+        "description": "Square Access Token",
+        "risk": "high"
+      },
+      {
+        "name": "facebook_token",
+        "regex": "EAACEdEose0cBA[0-9A-Za-z]+",
+        "description": "Facebook Access Token",
+        "risk": "high"
+      },
+      {
+        "name": "twitter_token",
+        "regex": "[1-9][0-9]+-[0-9a-zA-Z]{40}",
+        "description": "Twitter Access Token",
+        "risk": "high"
+      }
+    ]
+  },
+  "headers": {
+    "name": "Security Headers",
+    "risk": "medium",
+    "patterns": [
+      {
+        "name": "authorization_header",
+        "regex": "authorization:\\s*(basic|bearer|token)\\s+[a-zA-Z0-9._=:+-]+",
+        "description": "Authorization header",
+        "risk": "high"
+      },
+      {
+        "name": "cookie",
+        "regex": "cookie:\\s*[a-zA-Z0-9._-]+=[a-zA-Z0-9._-]+",
+        "description": "Cookie header",
+        "risk": "medium"
+      },
+      {
+        "name": "x_api_key",
+        "regex": "x-api-key:\\s*[a-zA-Z0-9._-]+",
+        "description": "X-API-Key header",
+        "risk": "high"
+      },
+      {
+        "name": "api_key_header",
+        "regex": "api[_-]?key:\\s*[a-zA-Z0-9._-]+",
+        "description": "API Key header",
+        "risk": "high"
+      }
+    ]
+  },
+  "tokens": {
+    "name": "Authentication Tokens",
+    "risk": "high",
+    "patterns": [
+      {
+        "name": "bearer_token",
+        "regex": "bearer\\s+[a-zA-Z0-9._=:+-]+",
+        "description": "Bearer token",
+        "risk": "high"
+      },
+      {
+        "name": "basic_auth",
+        "regex": "basic\\s+[a-zA-Z0-9=]+",
+        "description": "Basic authentication",
+        "risk": "high"
+      },
+      {
+        "name": "jwt",
+        "regex": "eyJ[a-zA-Z0-9_-]+\\.[a-zA-Z0-9_-]+\\.[a-zA-Z0-9_-]+",
+        "description": "JWT token",
+        "risk": "high"
+      },
+      {
+        "name": "oauth2_token",
+        "regex": "ya29\\.[a-zA-Z0-9_-]+",
+        "description": "OAuth2 token",
+        "risk": "high"
+      },
+      {
+        "name": "session_token",
+        "regex": "session[_-]?token[\\s]*[=:][\\s]*[a-zA-Z0-9._-]+",
+        "description": "Session token",
+        "risk": "high"
+      }
+    ]
+  },
+  "urls": {
+    "name": "Sensitive URLs",
+    "risk": "medium",
+    "patterns": [
+      {
+        "name": "url_with_credentials",
+        "regex": "[a-zA-Z]+://[^/:]+:[^@]+@[^\\s]+",
+        "description": "URL with embedded credentials",
+        "risk": "high"
+      },
+      {
+        "name": "aws_s3_url",
+        "regex": "https?://[a-zA-Z0-9.-]+\\.s3\\.amazonaws\\.com/[^\\s]+",
+        "description": "AWS S3 URL",
+        "risk": "medium"
+      },
+      {
+        "name": "private_s3_url",
+        "regex": "s3://[a-zA-Z0-9._-]+/[^\\s]+",
+        "description": "Private S3 URL",
+        "risk": "high"
+      },
+      {
+        "name": "git_url",
+        "regex": "git@[a-zA-Z0-9.-]+:[a-zA-Z0-9/._-]+\\.git",
+        "description": "Git URL with SSH",
+        "risk": "medium"
+      }
+    ]
+  },
+  "generic": {
+    "name": "Generic Patterns",
+    "risk": "medium",
+    "patterns": [
+      {
+        "name": "base64_encoded",
+        "regex": "[A-Za-z0-9+/]{40,}={0,2}",
+        "description": "Base64 encoded string",
+        "risk": "medium"
+      },
+      {
+        "name": "hex_encoded",
+        "regex": "\\b[0-9a-fA-F]{32,}\\b",
+        "description": "Hex encoded string",
+        "risk": "medium"
+      },
+      {
+        "name": "uuid",
+        "regex": "\\b[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\\b",
+        "description": "UUID",
+        "risk": "low"
+      },
+      {
+        "name": "hash",
+        "regex": "\\b[0-9a-f]{32}\\b|\\b[0-9a-f]{40}\\b|\\b[0-9a-f]{64}\\b",
+        "description": "Hash (MD5/SHA1/SHA256)",
+        "risk": "medium"
+      },
+      {
+        "name": "high_entropy",
+        "regex": "[A-Za-z0-9!@#$%^&*()_+]{20,}",
+        "description": "High entropy string",
+        "risk": "medium"
+      }
+    ]
+  }
+}
