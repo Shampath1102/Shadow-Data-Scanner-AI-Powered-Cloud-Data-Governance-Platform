@@ -84,7 +84,7 @@ S3 Buckets → Scanner Engine → ML Classification Engine
             ↓
       Reports & APIs
 ```
-![System architecture](docs/images/architecture.png)
+![System architecture](docs/images/architecture_ml_project.png)
 
 ---
 
